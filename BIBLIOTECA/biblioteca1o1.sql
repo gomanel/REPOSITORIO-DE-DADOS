@@ -179,9 +179,9 @@ CALL registrarEmprestimo(1, 7);
 SET @empId = LAST_INSERT_ID();
 
 -- Adicionar 2 livros ao empréstimo
-set @livroId = (SELECT livroId FROM livro WHERE titulo='Fundação' LIMIT 1);
+set @livroId := (SELECT livroId FROM livro WHERE titulo='Fundação' LIMIT 1);
 CALL adicionarLivroEmprestimo(@empId, @livroId);
-set @livroId = (SELECT livroId FROM livro WHERE titulo='Dom Casmurro' LIMIT 1);
+set @livroId := (SELECT livroId FROM livro WHERE titulo='Dom Casmurro' LIMIT 1);
 CALL adicionarLivroEmprestimo(@empId, @livroId);
 
 -- Conferir disponibilidade após o empréstimo
